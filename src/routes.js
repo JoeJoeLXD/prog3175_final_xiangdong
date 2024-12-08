@@ -87,4 +87,18 @@ router.put("/:id", (req, res) => {
   res.json(movies[movieIndex]);
 });
 
+// DELETE /movies/:id - Delete a movie by ID
+router.delete("/:id", (req, res) => {
+  const movies = readMovies();
+  const id = parseInt(req.params.id, 10);
+  const newMovies = movies.filter((m) => m.id !== id);
+
+  if (newMovies.length === movies.length) {
+    return res.status(404).json({ error: "Movie not found" });
+  }
+
+  writeMovies(newMovies);
+  res.status(204).send();
+});
+
 module.exports = router;
