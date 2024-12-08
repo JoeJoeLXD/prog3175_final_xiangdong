@@ -36,4 +36,31 @@ router.get("/:id", (req, res) => {
   res.json(movie);
 });
 
+// POST /movies - Create a new movie
+router.post("/", (req, res) => {
+  const movies = readMovies();
+  const { title, genre, releaseYear } = req.body;
+
+  // Validate request body
+  if (!title || !genre || !releaseYear) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  // Generate a new ID (simple approach: find max existing ID and add 1)
+  const newId =
+    movies.length > 0 ? Math.max(...movies.map((m) => m.id)) + 1 : 1;
+
+  const newMovie = {
+    id: newId,
+    title,
+    genre,
+    releaseYear,
+  };
+
+  movies.push(newMovie);
+  writeMovies(movies);
+
+  res.status(201).json(newMovie);
+});
+
 module.exports = router;
