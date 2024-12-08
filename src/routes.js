@@ -63,4 +63,28 @@ router.post("/", (req, res) => {
   res.status(201).json(newMovie);
 });
 
+// PUT /movies/:id - Update an existing movie by ID
+router.put("/:id", (req, res) => {
+  const movies = readMovies();
+  const id = parseInt(req.params.id, 10);
+  const movieIndex = movies.findIndex((m) => m.id === id);
+
+  if (movieIndex === -1) {
+    return res.status(404).json({ error: "Movie not found" });
+  }
+
+  const { title, genre, releaseYear } = req.body;
+
+  // Validate request body
+  if (!title || !genre || !releaseYear) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  // Update the movie
+  movies[movieIndex] = { id, title, genre, releaseYear };
+  writeMovies(movies);
+
+  res.json(movies[movieIndex]);
+});
+
 module.exports = router;
