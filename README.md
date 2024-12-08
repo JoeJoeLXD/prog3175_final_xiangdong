@@ -5,6 +5,7 @@ A simple Node.js and Express-based REST API that allows to perform CRUD (Create,
 
 
 Description:
+
 This API supports the following operations on movie resources:
 Create: Add a new movie with title, genre, and releaseYear attributes.
 Read:
@@ -16,11 +17,13 @@ Data persistence is handled by reading and writing to a movies.json file, ensuri
 
 
 Requirements:
+
 Node.js (version 14 or higher recommended)
 npm (comes with Node.js)
 
 
 Installation & Running:
+
 1. Clone the Repository:
 git clone https://github.com/JoeJoeLXD/prog3175_final_xiangdong.git
 cd prog3175_final_xiangdong
@@ -42,8 +45,9 @@ All endpoints are prefixed with /movies:
     Delete a Movie by ID: DELETE http://localhost:3000/movies/:id
 
 
-Endpoints & Example Usage
-1. Create a New Movie
+Endpoints & Example Usage:
+
+1. Create a New Movie:
 Endpoint: POST /movies
 Request Body (JSON):
 {
@@ -59,7 +63,7 @@ Response Example:
   "releaseYear": 2014
 }
 
-2. Get All Movies
+2. Get All Movies:
 Endpoint: GET /movies
 Response Example:
 [
@@ -77,7 +81,7 @@ Response Example:
   }
 ]
 
-3. Get a Movie by ID
+3. Get a Movie by ID:
 Endpoint: GET /movies/:id
 Example: GET /movies/1
 Response Example:
@@ -88,7 +92,7 @@ Response Example:
   "releaseYear": 1999
 }
 
-4. Update a Movie by ID
+4. Update a Movie by ID:
 Endpoint: PUT /movies/:id
 Example: PUT /movies/2
 Request Body (JSON):
@@ -105,13 +109,14 @@ Response Example:
   "releaseYear": 2010
 }
 
-5. Delete a Movie by ID
+5. Delete a Movie by ID:
 Endpoint: DELETE /movies/:id
 Example: DELETE /movies/3
 Response: Status code 204 on successful deletion (no response body).
 
 
-JSON Data Handling
+JSON Data Handling:
+
 All movie data is stored in movies.json. The API reads from and writes to this file on every operation, ensuring data persistence.
 
 Example movies.json:
@@ -131,7 +136,8 @@ Example movies.json:
 ]
 
 
-Git Commit History Example
+Git Commit History Example:
+
 Following the recommended pattern, commits were made after completing each CRUD endpoint:
     After completing Create endpoint:
             Commit message: Added Create endpoint for Movie resource.
