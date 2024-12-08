@@ -4,7 +4,7 @@ Movie API (prog3175_final_xiangdong):
 A simple Node.js and Express-based REST API that allows to perform CRUD (Create, Read, Update, Delete) operations on a list of movies stored in a JSON file. This project demonstrates how to implement basic API endpoints without using a database, using movies.json as the data source.
 
 
-Description
+Description:
 This API supports the following operations on movie resources:
 Create: Add a new movie with title, genre, and releaseYear attributes.
 Read:
