@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Inception3",
+    "genre": "Sci-Fi",
+    "releaseYear": 2014
+  },
+  {
+    "id": 2,
+    "title": "Inception",
+    "genre": "Sci-Fi",
+    "releaseYear": 2010
+  }
+]
